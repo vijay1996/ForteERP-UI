@@ -1,0 +1,27 @@
+.form-control {
+    width: 100%;
+    font-size: 0.93em;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.field-container {
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.form-label {
+    font-size: 0.80em;
+    margin-bottom: 2px;
+    text-shadow: none;
+}
+
+.dark {
+    color: #ccc;
+    font-weight: 700;
+}
+
+.light {
+    color: #333;
+    font-weight: 500;
+}

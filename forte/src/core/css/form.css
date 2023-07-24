@@ -1,0 +1,42 @@
+#form-view {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.tab-bar {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    font-size: 0.75em;
+    height: 5%;
+}
+
+.fields-section {
+    height: auto;
+    overflow: auto;
+    padding: 1%;
+    padding-top: 1%;
+    padding-bottom: 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    height: 5%;
+}
+
+.action-button {
+    margin-right: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

@@ -1,0 +1,26 @@
+#grid-toolbar {
+    height: 8%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.grid-toolbar-button-icon {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.grid-toolbar-button {
+    margin-right: 5px;
+    height: 32px;
+    width: 32px;
+    padding: 0;
+}
+
+#grid-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

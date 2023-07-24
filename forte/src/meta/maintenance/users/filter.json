@@ -1,0 +1,47 @@
+{
+    "fields": [
+        {
+            "name": "firstName",
+            "type": "Text",
+            "label": "First name",
+            "required": true,
+            "props": {
+                "maxLength": 20
+            }
+        },
+        {
+            "name": "lastName",
+            "type": "Text",
+            "label": "Last name",
+            "required": false,
+            "props": {
+                "maxLength": 20
+            }
+        },
+        {
+            "name": "email",
+            "type": "Email",
+            "label": "Email",
+            "required": true,
+            "props": {
+                "maxLength": 50
+            }
+        },
+        {
+            "name": "role",
+            "type": "Select",
+            "label": "Roles",
+            "defaultValue": "C",
+            "required": true,
+            "values": [
+                { "value": "A", "label": "Admin" },
+                { "value": "C", "label": "Common" }
+            ]
+        },
+        {
+            "name": "testCheckbox",
+            "type": "Checkbox",
+            "label": "this is a checkbox"
+        }
+    ]
+}

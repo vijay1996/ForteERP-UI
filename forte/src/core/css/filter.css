@@ -1,0 +1,15 @@
+#filter-container {
+    width: 100%;
+    background-color: #404040;
+    padding: 4%;
+    height: 100%;
+}
+
+#buttons-section {
+    padding: 4%;
+}
+
+.forte-button {
+    width: 46%;
+    margin: 2%;
+}

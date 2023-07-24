@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6d987d9b-75bf-4199-a65b-86efc915da4d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/forte/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/core/Core.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/src/App.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/src/reportWebVitals.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/src/setupTests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forte/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="2SmA9FRPepSZa7LMeHmyK7jmBNm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/vijay/Documents/ForteErp/ForteERP-UI&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ForteERP-UI" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ForteERP-UI" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6d987d9b-75bf-4199-a65b-86efc915da4d" name="Changes" comment="" />
+      <created>1689741228652</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689741228652</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

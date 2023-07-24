@@ -1,0 +1,54 @@
+{
+    "fields": [
+        {
+            "name": "MAIN-SHEET",
+            "type": "Sheet",
+            "label": "Main",
+            "index": 1
+        },
+        {
+            "name": "firstName",
+            "label": "First name",
+            "type": "Text",
+            "required": true,
+            "props": {
+                "maxLength": 25
+            },
+            "index": 1,
+            "span": 2,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "lastName",
+            "label": "Last name",
+            "type": "Text",
+            "required": true,
+            "props": {
+                "maxLength": 25
+            },
+            "index": 1,
+            "span": 2,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "email",
+            "type": "Email",
+            "label": "Email",
+            "required": true,
+            "props": {
+                "maxLength": 50
+            },
+            "index": 2,
+            "span": 4,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "isAdmin",
+            "type": "Checkbox",
+            "label": "Is this user an administrator?",
+            "index": 3,
+            "span": 4,
+            "parent": "MAIN-SHEET"
+        }
+    ]
+}
