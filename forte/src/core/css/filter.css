@@ -5,11 +5,11 @@
     height: 100%;
 }
 
-#buttons-section {
+#filter-buttons-section {
     padding: 4%;
 }
 
-.forte-button {
+.filter-forte-button {
     width: 46%;
     margin: 2%;
 }

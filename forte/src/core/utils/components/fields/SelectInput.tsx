@@ -18,7 +18,7 @@ const SelectInput = (
     }
 ) => {
 
-    const [value, setValue] = useState<string|number|null>(field.defaultValue);
+    const [value, setValue] = useState<string|number|null>(filterState[`${field.name}`] || field.defaultValue);
 
     useEffect(() => {
         setValue(filterState[`${field.name}`]);

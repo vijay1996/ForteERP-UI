@@ -46,6 +46,7 @@
             "name": "isAdmin",
             "type": "Checkbox",
             "label": "Is this user an administrator?",
+            "defaultValue": "N",
             "index": 3,
             "span": 4,
             "parent": "MAIN-SHEET"

@@ -3,16 +3,27 @@ import { PageStateInterface } from "../interface/pageStateInterface";
 import { getAllFieldsForIndices, getAllIndices, getFieldsByParent, getTabCount, getTabs } from "../utils/functions/formRenderLogic";
 import '../css/form.css';
 import RenderFields from "../utils/functions/RenderFields";
+import { callApiInPostMode } from "../utils/functions/api";
+import Toast from "../utils/components/toast/Toast";
+import { handleApiError } from "../utils/functions/errorHandling";
 
 const Form = ({pageState, setPageState} : {pageState: PageStateInterface, setPageState: Function}) => {
 
     const [formState, setFormState] = useState<any>({
         tabs: 0,
         currentTab: null,
-        currentParent: null
+        currentParent: null,
+        toast: null
     });
-    const [filterState, setFilterState] = useState<any>({});
+    const [filterState, setFilterState] = useState<any>(Object.keys(pageState.editRecord).length ? pageState.editRecord : {});
     const [fields, setFields] = useState<any>(null);
+
+    const setLoader = (state: boolean) => {
+        setPageState((prev: PageStateInterface) => ({
+            ...prev,
+            loader: state
+        }))
+    }
 
     const cancelForm = () => {
         setPageState((page: PageStateInterface) => ({
@@ -37,9 +48,15 @@ const Form = ({pageState, setPageState} : {pageState: PageStateInterface, setPag
         }));
     }
 
+    const submitForm = async () => {
+        setLoader(true);
+        pageState?.form === 'add' && (delete filterState._id);
+        handleApiError(await callApiInPostMode(pageState.application as string, pageState.screen as string, pageState.form as string, filterState).finally(() => setLoader(false)), `Record ${pageState.form === 'add' ? 'added' : 'updated'} successfully!`, setPageState);
+    }
+
 
     useEffect(() => {
-        const fieldsForParent = getFieldsByParent(formState.currentParent, pageState.metadata.form.fields);
+        const fieldsForParent = getFieldsByParent(formState.currentParent, pageState.metadata?.form?.fields);
         const indices = getAllIndices(fieldsForParent);
         const totalSpans = Array.from(indices).map(index => {
             const fieldsForIndex = getAllFieldsForIndices(fieldsForParent, index as number);
@@ -71,14 +88,14 @@ const Form = ({pageState, setPageState} : {pageState: PageStateInterface, setPag
             )
         }))
 
-    }, [formState.currentParent, pageState.metadata.form.fields]);
+    }, [formState.currentParent, pageState.metadata?.form?.fields]);
 
     return (
         <div id="form-view" style={{height: pageState.sidebarHeight}}>
-            {getTabCount(pageState.metadata.form.fields) > 1 && 
+            {getTabCount(pageState.metadata?.form.fields) > 1 && 
                 (<div className="tab-bar">
                     <ul className="nav nav-tabs">
-                        {getTabs(pageState.metadata.form.fields).map((field: any, index: number) => (
+                        {getTabs(pageState.metadata?.form?.fields).map((field: any, index: number) => (
                             <li className="nav-item clickable" onClick={() => setActiveTab(field)}>
                                 <span className={`nav-link ${getActiveTab(field, index)}`}>{field.label}</span>
                             </li>
@@ -94,7 +111,7 @@ const Form = ({pageState, setPageState} : {pageState: PageStateInterface, setPag
                 ))}
             </div>
             <div className="button-container">
-                <button className="btn btn-primary action-button" onClick={() => {console.log(filterState)}}>Save</button>
+                <button className="btn btn-primary action-button" onClick={() => submitForm()}>Save</button>
                 <button className="btn btn-danger action-button" onClick={() => cancelForm()}>Cancel</button>
             </div>
         </div>

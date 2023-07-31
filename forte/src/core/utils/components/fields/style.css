@@ -25,3 +25,17 @@
     color: #333;
     font-weight: 500;
 }
+
+.dropdown-toggle + .dropdown-menu {
+    display: none;
+    width: 100%;
+}
+
+.dropdown-toggle:focus + .dropdown-menu {
+    display: block;
+    width: 100%;
+}
+
+.dropdown-item {
+    z-index: 1000;
+}

@@ -2,46 +2,42 @@
     "fields": [
         {
             "name": "firstName",
-            "type": "Text",
+            "type": "DynamicSelect",
             "label": "First name",
             "required": true,
             "props": {
                 "maxLength": 20
+            },
+            "api": {
+                "application": "maintenance",
+                "screen": "users"
             }
         },
         {
             "name": "lastName",
-            "type": "Text",
+            "type": "DynamicSelect",
             "label": "Last name",
             "required": false,
             "props": {
                 "maxLength": 20
+            },
+            "api": {
+                "application": "maintenance",
+                "screen": "users"
             }
         },
         {
             "name": "email",
-            "type": "Email",
+            "type": "DynamicSelect",
             "label": "Email",
             "required": true,
             "props": {
                 "maxLength": 50
+            },
+            "api": {
+                "application": "maintenance",
+                "screen": "users"
             }
-        },
-        {
-            "name": "role",
-            "type": "Select",
-            "label": "Roles",
-            "defaultValue": "C",
-            "required": true,
-            "values": [
-                { "value": "A", "label": "Admin" },
-                { "value": "C", "label": "Common" }
-            ]
-        },
-        {
-            "name": "testCheckbox",
-            "type": "Checkbox",
-            "label": "this is a checkbox"
         }
     ]
 }

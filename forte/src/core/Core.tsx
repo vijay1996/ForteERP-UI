@@ -7,6 +7,9 @@ import './css/core.css';
 import Grid from './components/Grid';
 import maintenance from '../meta/maintenance';
 import Form from './components/Form';
+import { callApiInPostMode } from './utils/functions/api';
+import ForteToast from './utils/components/toast/Toast';
+import { AlertColor } from '@mui/material';
 
 
 const Core = () => {
@@ -15,18 +18,29 @@ const Core = () => {
     const defaultScreens = ["", "users", ""]
     const defaultMetadatas = [null, maintenance['users'], null];
 
+    const handleToastCancel = () => {
+        setPageState((prev: PageStateInterface) => ({
+            ...prev,
+            toastMessage: null,
+            toastMessageSeverity: null
+        }))
+    }
+
     const [pageState, setPageState] = useState<PageStateInterface>({
         activeTab: 1,
         showSidebar: false,
         sidebarHeight: 0,
-        application: applications[1],
-        screen: defaultScreens[1],
-        metadata: defaultMetadatas[1],
+        application: null,
+        screen: null,
+        metadata: null,
         loader: false,
-        form: null
+        form: null,
+        toastMessage: null,
+        toastMessageSeverity: null
     });
 
     useEffect(() => {
+
         setPageState((prev: PageStateInterface) => ({
             ...prev,
             application: applications[pageState.activeTab as number],
@@ -46,12 +60,18 @@ const Core = () => {
                     <Sidebar pageState={pageState} setPageState={setPageState} />
                 ) :
                 (
-                    pageState.form ? 
+                    pageState?.form ? 
                         (<Form pageState={pageState} setPageState={setPageState} />) :
                         (<Grid pageState={pageState} setPageState={setPageState} />)
                 )
             }
             {pageState.loader && <Loader pageState={pageState} />}
+            <ForteToast 
+                toastMessage={pageState.toastMessage as string } 
+                show={!!pageState.toastMessage} 
+                severity={pageState.toastMessageSeverity as AlertColor} 
+                handleCancel={() => handleToastCancel()}
+            />
         </div>
     )
 }

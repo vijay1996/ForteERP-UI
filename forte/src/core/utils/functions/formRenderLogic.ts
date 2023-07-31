@@ -1,10 +1,10 @@
 export const getTabCount = (fields: any) => {
     let count = 0;
-    fields.forEach((field: any) => field.type === 'Sheet' ? count ++ : count);
+    fields?.forEach((field: any) => field.type === 'Sheet' ? count ++ : count);
     return count;
 }
 
-export const getTabs = (fields: any) => fields.filter((field: any) => field.type === 'Sheet').sort((field1:any, field2:any) => field1.index - field2.index);
+export const getTabs = (fields: any) => fields?.filter((field: any) => field.type === 'Sheet').sort((field1:any, field2:any) => field1.index - field2.index);
 
 export const getFieldsByParent = (parent: string, fields: any) => {
     const currentParent = parent || getTabs(fields)[0].name;

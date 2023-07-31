@@ -18,7 +18,7 @@ const CheckboxInbox = (
     }
 ) => {
     
-    const [value, setValue] = useState<string>("N");
+    const [value, setValue] = useState<string>(filterState[`${field.name}`] || field.defaultValue );
 
     useEffect(() => {
         setValue(filterState[`${field.name}`]);

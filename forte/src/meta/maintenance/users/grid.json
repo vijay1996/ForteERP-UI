@@ -1,20 +1,21 @@
 {
     "columns": [
+
         {
-            "name": "firstName",
-            "label": "First name",
+            "name": "email",
+            "label": "Email",
             "span": 2,
             "index": 1
         },
         {
-            "name": "lastName",
-            "label": "Last name",
+            "name": "firstName",
+            "label": "First name",
             "span": 2,
             "index": 2
         },
         {
-            "name": "email",
-            "label": "Email",
+            "name": "lastName",
+            "label": "Last name",
             "span": 2,
             "index": 3
         },

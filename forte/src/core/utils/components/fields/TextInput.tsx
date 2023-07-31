@@ -3,7 +3,7 @@ import './style.css';
 
 const TextInput = ({field, filterState, setFilterState, labelClass, parentClass} : {field: any, filterState: object|any, setFilterState: Function, labelClass: string, parentClass: string}) => {
 
-    const [value, setValue] = useState<string|number|null>(field.defaultValue);
+    const [value, setValue] = useState<string|number|null>(filterState[`${field.name}`] || field.defaultValue);
 
     useEffect(() => {
         setValue(filterState[`${field.name}`]);
