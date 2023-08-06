@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './style.css';
 import { callApiInPostMode } from "../../functions/api";
-import { Select } from "@mui/material";
 
 const DynamicSelectInput = (
     {
@@ -10,17 +9,19 @@ const DynamicSelectInput = (
         setFilterState, 
         labelClass, 
         parentClass,
+        setRerender
     } : 
     {
         field: any, 
         filterState: object|any, 
         setFilterState: Function, 
         labelClass: string, 
-        parentClass: string
+        parentClass: string,
+        setRerender: Function
     }
 ) => {
 
-    const [value, setValue] = useState<string|null>(filterState[`${field.name}`] || field.defaultValue);
+    const [value, setValue] = useState<string|null>(filterState && filterState[`${field.name}`] ? filterState[`${field.name}`] : field.defaultValue);
     const [values, setValues] = useState<Array<any>>([{label: "test", value: "test"}])
     const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -33,21 +34,23 @@ const DynamicSelectInput = (
         newFilterState[`${field.name}`] = value;
         setFilterState(newFilterState);
         value?.split('').map((character:string) => character === '/' ? '//' : character).join('')
-        value && callApiInPostMode(field.api.application, field.api.screen, 'dynamicSelect', JSON.parse(`{"${field.name}": "${value}"}`)).then((response: any) => {
+        value && callApiInPostMode(field.api.application, field.api.screen, 'dynamicSelect', JSON.parse(`{"${field.api.alias?.value || field.name}": "${value}"}`)).then((response: any) => {
             setValues(response.data);
         })
         !value && setValues([]);
+        setRerender((prev:number) => prev + 1);
     }, [value, field.name]);
 
     return (
         <div className={`field-container ${parentClass}`}>
+            <label className={`form-label ${labelClass}`} htmlFor={field.name}>{field.label}<span className="error">{field.error}</span></label>
             <input
                 value={value as string}
                 onChange={(e) => setValue(e.target.value)}
                 onFocus={() => setShowSuggestions(true)}
                 onBlur={() => setShowSuggestions(false)}
                 className="form form-control"
-                placeholder="type for suggestions"
+                placeholder="search"
                 type="search"
                 id={`dynamic-select-${field.name}`}
             />
@@ -77,9 +80,9 @@ const DynamicSelectInput = (
                                     borderBottom: "1px solid #eee",
                                     padding: "5px"
                                 }} 
-                                onMouseDown={() => setValue(val[`${field.name}`])}
+                                onMouseDown={() => setValue(val[`${field.api.alias?.value || field.name}`])}
                             >
-                                {val[`${field.name}`]}
+                                {val[`${field.api.alias?.value || field.name}`]}
                             </div>
                         ) : 
                         <></>

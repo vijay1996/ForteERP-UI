@@ -1,0 +1,53 @@
+{
+    "fields": [
+        {
+            "name": "productName",
+            "type": "DynamicSelect",
+            "label": "Product name",
+            "required": false,
+            "props": {
+                "maxLength": 20
+            },
+            "api": {
+                "application": "maintenance",
+                "screen": "products"
+            }
+        },
+        {
+            "name": "description",
+            "type": "Text",
+            "label": "Description contains",
+            "required": false,
+            "props": {
+                "maxLength": 20
+            },
+            "api": {
+                "application": "maintenance",
+                "screen": "users"
+            }
+        },
+        {
+            "name": "category",
+            "type": "DynamicSelect",
+            "label": "Category",
+            "required": true,
+            "props": {
+                "maxLength": 50
+            },
+            "api": {
+                "application": "maintenance",
+                "screen": "products"
+            }
+        },
+        {
+            "name": "publish",
+            "type": "Checkbox",
+            "label": "Published products",
+            "api": {
+                "application": "maintenance",
+                "screen": "products"
+            },
+            "defaultValue": "N"
+        }
+    ]
+}

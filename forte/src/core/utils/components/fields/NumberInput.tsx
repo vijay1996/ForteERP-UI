@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import './style.css';
 import fieldEvaluators from '../../../utils/functions/fieldEvaluators';
 
-const TextInput = ({field, filterState, setFilterState, labelClass, parentClass, setRerender} : {field: any, filterState: object|any, setFilterState: Function, labelClass: string, parentClass: string, setRerender:Function}) => {
+const NumberInput = ({field, filterState, setFilterState, labelClass, parentClass, setRerender} : {field: any, filterState: object|any, setFilterState: Function, labelClass: string, parentClass: string, setRerender:Function}) => {
 
     const [value, setValue] = useState<string|number|null>(filterState && filterState[`${field.name}`] ? filterState[`${field.name}`] : field.defaultValue);
+
+    useEffect(() => {
+        setValue(filterState[`${field.name}`]);
+    }, [filterState]);
 
     useEffect(() => {
         field.value = value;
@@ -12,6 +16,7 @@ const TextInput = ({field, filterState, setFilterState, labelClass, parentClass,
         field.validators?.length && field.validators.forEach((func:string) => fieldEvaluators[`${func}`](field, []))
         const newFilterState = filterState;
         newFilterState[`${field.name}`] = value;
+        setFilterState(newFilterState);
         setRerender((prev: number) => prev + 1)
     }, [value, field.name, field.changed]);
 
@@ -20,8 +25,9 @@ const TextInput = ({field, filterState, setFilterState, labelClass, parentClass,
             <label className={`form-label ${labelClass}`} htmlFor={field.name}>{field.label}<span className="error">{field.error}</span></label>
             <input 
                 className={`form form-control`} 
-                type={field.type}
-                id={field.name} 
+                type={'number'}
+                id={field.name}
+                step={field.type === 'Number' ? 1 : (field.props?.step || 0.01)}
                 maxLength={field.props?.maxLength} 
                 required={!!field.required}
                 disabled={field.disabled}
@@ -32,8 +38,8 @@ const TextInput = ({field, filterState, setFilterState, labelClass, parentClass,
     );
 };
 
-TextInput.defaultProps = {
+NumberInput.defaultProps = {
     labelClass: 'dark'
 }
 
-export default TextInput;
+export default NumberInput;

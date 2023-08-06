@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = "http://localhost:3001/forte"
+export const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export async function callApiInPostMode (application: string, screen: string, call: string, payload: any) {
     if (!application || !screen || !call) return null;

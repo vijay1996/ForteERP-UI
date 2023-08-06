@@ -12,6 +12,7 @@ const ForteToast = ({show, toastMessage, handleCancel, severity}:{show:boolean, 
             message={toastMessage}
         >
             <Alert
+                id="toast-container"
                 onClose={() => handleCancel()}
                 severity={severity || "info"}
             >

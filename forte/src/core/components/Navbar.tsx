@@ -6,11 +6,13 @@ import CancelIcon from '../utils/icons/CancelIcon';
 const Navbar = (
     {
         pageState, 
-        setPageState
+        setPageState,
+        applications
     } : 
     {
         pageState: PageStateInterface, 
-        setPageState: Function
+        setPageState: Function,
+        applications: Array<string>
     }
 ) => {
 
@@ -53,9 +55,7 @@ const Navbar = (
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
-                    <button className={`nav-link clickable ${isActiveTab(0)}`} onClick={() => performClick(0)}>Business</button>
-                    <button className={`nav-link clickable ${isActiveTab(1)}`} onClick={() => performClick(1)}>Maintenance</button>
-                    <button className={`nav-link clickable ${isActiveTab(2)}`} onClick={() => performClick(2)}>Reporter</button>
+                    {applications.map((application: string, index: number) => <button className={`nav-link clickable ${isActiveTab(index)}`} onClick={() => performClick(index)}>{application}</button>)}
                 </div>
                 </div>
             </div>

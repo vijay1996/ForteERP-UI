@@ -1,5 +1,9 @@
-import users from './users/index'
+import users from './users';
+import products from './products';
+import organisation from './organisation';
 
 export default { 
-    users
+    users,
+    products,
+    organisation
 };

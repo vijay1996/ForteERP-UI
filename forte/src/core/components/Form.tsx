@@ -4,7 +4,6 @@ import { getAllFieldsForIndices, getAllIndices, getFieldsByParent, getTabCount, 
 import '../css/form.css';
 import RenderFields from "../utils/functions/RenderFields";
 import { callApiInPostMode } from "../utils/functions/api";
-import Toast from "../utils/components/toast/Toast";
 import { handleApiError } from "../utils/functions/errorHandling";
 
 const Form = ({pageState, setPageState} : {pageState: PageStateInterface, setPageState: Function}) => {
@@ -17,6 +16,7 @@ const Form = ({pageState, setPageState} : {pageState: PageStateInterface, setPag
     });
     const [filterState, setFilterState] = useState<any>(Object.keys(pageState.editRecord).length ? pageState.editRecord : {});
     const [fields, setFields] = useState<any>(null);
+    const [rerender, setRerender] = useState(0);
 
     const setLoader = (state: boolean) => {
         setPageState((prev: PageStateInterface) => ({
@@ -51,7 +51,7 @@ const Form = ({pageState, setPageState} : {pageState: PageStateInterface, setPag
     const submitForm = async () => {
         setLoader(true);
         pageState?.form === 'add' && (delete filterState._id);
-        handleApiError(await callApiInPostMode(pageState.application as string, pageState.screen as string, pageState.form as string, filterState).finally(() => setLoader(false)), `Record ${pageState.form === 'add' ? 'added' : 'updated'} successfully!`, setPageState);
+        handleApiError(await callApiInPostMode(pageState.application as string, pageState.screen as string, pageState.form as string, filterState).finally(() => setLoader(false)), `Record ${pageState.form === 'add' ? 'added' : 'updated'} successfully!`, setPageState, () => setRerender(prev => prev+1));
     }
 
 
@@ -71,6 +71,11 @@ const Form = ({pageState, setPageState} : {pageState: PageStateInterface, setPag
         //@ts-ignore
         let totalSpan: number = totalSpans.sort((a:Array<number>, b: Array<number>) => b - a)[0];
         totalSpan = totalSpan < 12 ? 12 : totalSpan;
+        pageState.metadata?.form?.fields?.forEach((field: any) => {
+            if (field.type === 'List') {
+                field.resolvedMetadata = JSON.parse(JSON.stringify(pageState.metadata[`${field.metadata}`]));
+            }
+        })
         setFields(Array.from(indices).map(index => {
             const fieldsForIndex = getAllFieldsForIndices(fieldsForParent, index as number);
             const currentTotalSpan: Array<number> = fieldsForIndex.length > 1 ? 
@@ -83,12 +88,12 @@ const Form = ({pageState, setPageState} : {pageState: PageStateInterface, setPag
             fractions += currentTotalSpan !== totalSpan ? ` ${12 * (totalSpan - currentTotalSpan) / totalSpan}fr` : ''
             return (
                 <div style={{display: 'grid', gridTemplateColumns: fractions, gridTemplateRows: "auto", columnGap: "5px"}}>
-                    {fieldsForIndex.map((field: any) => RenderFields(field, filterState, setFilterState, "grid-item", "light"))}
+                    {fieldsForIndex.map((field: any) => RenderFields(field, filterState, setFilterState, "grid-item", "light", setRerender))}
                 </div>
             )
         }))
 
-    }, [formState.currentParent, pageState.metadata?.form?.fields]);
+    }, [formState.currentParent, pageState.metadata?.form?.fields, rerender]);
 
     return (
         <div id="form-view" style={{height: pageState.sidebarHeight}}>

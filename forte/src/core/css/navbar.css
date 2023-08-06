@@ -1,4 +1,4 @@
-.brand-name {
+.brand-name, .brand-name {
     margin-right: 3%;
     margin-left: 1%;
     font-weight: bolder;
@@ -15,4 +15,10 @@
 .icon {
     width: 25px !important;
     height: 25px !important;
+}
+
+.nav-link {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }

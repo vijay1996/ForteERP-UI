@@ -1,0 +1,29 @@
+{
+    "fields": [
+        {
+            "name": "MAIN-SHEET",
+            "type": "Sheet",
+            "label": "Main",
+            "index": 1
+        },
+        {
+            "name": "attribute",
+            "type": "Text",
+            "label": "Attribute",
+            "required": true,
+            "index": 1,
+            "span": 3,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "value",
+            "label": "Value",
+            "type": "Text",
+            "required": true,
+            "index": 1,
+            "span": 3,
+            "parent": "MAIN-SHEET"
+        }
+
+    ]
+}

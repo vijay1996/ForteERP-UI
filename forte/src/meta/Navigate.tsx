@@ -21,7 +21,9 @@ const Navigate = ({pageState, setPageState} : {pageState: PageStateInterface, se
     } else if (pageState.application === "Maintenance") {
         return (
             <div className="container row">
-                <div className="col-md-2 sidebar-link" onClick={() => navigateTo("users")}>users</div>
+                <div className="col-md-12 sidebar-link" onClick={() => navigateTo("organisation")}>Organisation</div>
+                <div className="col-md-12 sidebar-link" onClick={() => navigateTo("users")}>Users</div>
+                <div className="col-md-12 sidebar-link" onClick={() => navigateTo("products")}>Products</div>
             </div>
         );        
     } else if (pageState.application === "Reporter") {

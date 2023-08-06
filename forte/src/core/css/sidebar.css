@@ -1,6 +1,9 @@
 #sidebarView {
+    position: fixed;
+    z-index: 5;
     background-color: rgba(33, 37, 41, 1);
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    width: 24%;
+    padding: 2px;
+    padding-left: 18px;
+    height: 100%;
 }

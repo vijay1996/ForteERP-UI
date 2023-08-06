@@ -33,7 +33,7 @@ const Filter = (
     return (
         <form id="filter-container" className="col-md-3">
             {pageState?.metadata?.filter?.fields?.map((field : Object|any) => {
-                return RenderFields(field, payloadFilter, setPayloadFilter, "dark", "");
+                return RenderFields(field, payloadFilter, setPayloadFilter, "dark", "", () => {});
             })}
             <div id="buttons-section" className="row">
                 <button type="button" className="btn btn-success filter-forte-button col-6" onClick={submit}>Search</button>

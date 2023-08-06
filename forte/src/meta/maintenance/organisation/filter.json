@@ -1,0 +1,43 @@
+{
+    "fields": [
+        {
+            "name": "firstName",
+            "type": "DynamicSelect",
+            "label": "First name",
+            "required": true,
+            "props": {
+                "maxLength": 20
+            },
+            "api": {
+                "application": "maintenance",
+                "screen": "users"
+            }
+        },
+        {
+            "name": "lastName",
+            "type": "DynamicSelect",
+            "label": "Last name",
+            "required": false,
+            "props": {
+                "maxLength": 20
+            },
+            "api": {
+                "application": "maintenance",
+                "screen": "users"
+            }
+        },
+        {
+            "name": "email",
+            "type": "DynamicSelect",
+            "label": "Email",
+            "required": true,
+            "props": {
+                "maxLength": 50
+            },
+            "api": {
+                "application": "maintenance",
+                "screen": "users"
+            }
+        }
+    ]
+}

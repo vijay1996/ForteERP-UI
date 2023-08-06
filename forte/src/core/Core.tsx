@@ -14,9 +14,10 @@ import { AlertColor } from '@mui/material';
 
 const Core = () => {
 
-    const applications = ['Business', 'Maintenance', 'Reporter'];
-    const defaultScreens = ["", "users", ""]
-    const defaultMetadatas = [null, maintenance['users'], null];
+    const applications: any = ['Business', 'Maintenance', 'Analytics'];
+    const defaultScreens: any = ["", "organisation", ""]
+    //@ts-ignore
+    const defaultMetadatas: any = [null, maintenance[`${defaultScreens[1]}`], null];
 
     const handleToastCancel = () => {
         setPageState((prev: PageStateInterface) => ({
@@ -45,7 +46,8 @@ const Core = () => {
             ...prev,
             application: applications[pageState.activeTab as number],
             screen: defaultScreens[pageState.activeTab as number],
-            metadata: defaultMetadatas[pageState.activeTab as number]
+            metadata: defaultMetadatas[pageState.activeTab as number],
+            form: null
         }))
     }, [pageState.activeTab]);
 
@@ -54,16 +56,13 @@ const Core = () => {
             <Navbar 
                 pageState={pageState} 
                 setPageState={setPageState}
+                applications={applications}
             />
-            {pageState.showSidebar ? 
-                (
-                    <Sidebar pageState={pageState} setPageState={setPageState} />
-                ) :
-                (
-                    pageState?.form ? 
-                        (<Form pageState={pageState} setPageState={setPageState} />) :
-                        (<Grid pageState={pageState} setPageState={setPageState} />)
-                )
+            { pageState.showSidebar && <Sidebar pageState={pageState} setPageState={setPageState} /> }
+            {
+                pageState?.form ? 
+                    (<Form pageState={pageState} setPageState={setPageState} />) :
+                    (<Grid pageState={pageState} setPageState={setPageState} />)
             }
             {pageState.loader && <Loader pageState={pageState} />}
             <ForteToast 

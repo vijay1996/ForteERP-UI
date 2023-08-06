@@ -35,6 +35,7 @@
             "type": "Email",
             "label": "Email",
             "required": true,
+            "validators": ["emailValidator"],
             "props": {
                 "maxLength": 50
             },

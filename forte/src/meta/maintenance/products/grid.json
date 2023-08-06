@@ -1,0 +1,47 @@
+{
+    "columns": [
+
+        {
+            "name": "productName",
+            "label": "Product name",
+            "span": 2,
+            "index": 1
+        },
+        {
+            "name": "currency",
+            "label": "Currency",
+            "span": 2,
+            "index": 2
+        },
+        {
+            "name": "price",
+            "label": "Price",
+            "span": 2,
+            "index": 3
+        },
+        {
+            "name": "quantity",
+            "label": "Quantity",
+            "span": 2,
+            "index": 4
+        },
+        {
+            "name": "discount",
+            "label": "Discount",
+            "span": 2,
+            "index": 4
+        },
+        {
+            "name": "category",
+            "label": "Category",
+            "span": 2,
+            "index": 4
+        },
+        {
+            "name": "publish",
+            "label": "Publish",
+            "span": 2,
+            "index": 4
+        }
+    ]
+}

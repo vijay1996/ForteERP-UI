@@ -1,0 +1,109 @@
+{
+    "fields": [
+        {
+            "name": "MAIN-SHEET",
+            "type": "Sheet",
+            "label": "Main",
+            "index": 1
+        },
+        {
+            "name": "productName",
+            "label": "Name of the product",
+            "type": "Text",
+            "required": true,
+            "props": {
+                "maxLength": 25
+            },
+            "index": 1,
+            "span": 2,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "filler1",
+            "type": "Filler",
+            "index": 1,
+            "span": 5,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "image",
+            "type": "ImageBase64",
+            "label": "Upload a picture of the product",
+            "index": 1,
+            "span": 5,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "description",
+            "label": "Description",
+            "type": "LongText",
+            "required": true,
+            "props": {
+                "maxLength": 25
+            },
+            "index": 2,
+            "span": 6,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "currency",
+            "label": "Currency",
+            "type": "DynamicSelect",
+            "required": true,
+            "api": {
+                "application": "global",
+                "screen": "currency",
+                "alias": {
+                    "value": "name"
+                }
+            },
+            "index": 3,
+            "span": 1,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "price",
+            "label": "Price",
+            "type": "Decimal",
+            "required": true,
+            "index": 3,
+            "span": 1,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "category",
+            "label": "Category",
+            "type": "DynamicSelect",
+            "api": {
+                "application": "maintenance",
+                "screen": "products"
+            },
+            "index": 4,
+            "span": 4,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "publish",
+            "label": "Publish this product to website",
+            "type": "Checkbox",
+            "index": 5,
+            "span": 4,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "ORGANISATION-ATTRIBUTE-SHEET",
+            "type": "Sheet",
+            "label": "Attributes",
+            "index": 2
+        },
+        {
+            "name": "attributes",
+            "type": "List",
+            "label": "Set attributes to your product (eg. Discount, Quantity etc.)",
+            "metadata": "attribute",
+            "index": 1,
+            "span": 12,
+            "parent": "ORGANISATION-ATTRIBUTE-SHEET"
+        }
+    ]
+}

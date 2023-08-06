@@ -1,0 +1,94 @@
+{
+    "fields": [
+        {
+            "name": "MAIN-SHEET",
+            "type": "Sheet",
+            "label": "Main",
+            "index": 1
+        },
+        {
+            "name": "name",
+            "type": "Text",
+            "label": "Name of the organisation",
+            "parent": "MAIN-SHEET",
+            "index": 1,
+            "span": 6
+        },
+        {
+            "name": "email",
+            "type": "Email",
+            "label": "Email",
+            "required": true,
+            "validators": ["emailValidator"],
+            "props": {
+                "maxLength": 50
+            },
+            "index": 2,
+            "span": 6,
+            "parent": "MAIN-SHEET"
+        },
+        {
+            "name": "addressLine1",
+            "type": "Text",
+            "label": "Address line 1",
+            "parent": "MAIN-SHEET",
+            "index": 3,
+            "span": 6
+        },
+        {
+            "name": "addressLine2",
+            "type": "Text",
+            "label": "Address line 2",
+            "parent": "MAIN-SHEET",
+            "index": 4,
+            "span": 6
+        },
+        {
+            "name": "city",
+            "type": "Text",
+            "label": "City",
+            "parent": "MAIN-SHEET",
+            "index": 5,
+            "span": 2
+        },
+        {
+            "name": "state",
+            "type": "Text",
+            "label": "State",
+            "parent": "MAIN-SHEET",
+            "index": 5,
+            "span": 2
+        },
+        {
+            "name": "country",
+            "type": "Text",
+            "label": "Country",
+            "parent": "MAIN-SHEET",
+            "index": 5,
+            "span": 2
+        },
+        {
+            "name": "areaCode",
+            "type": "Text",
+            "label": "PIN/ZIP code",
+            "parent": "MAIN-SHEET",
+            "index": 6,
+            "span": 4
+        },
+        {
+            "name": "ORGANISATION-ATTRIBUTE-SHEET",
+            "type": "Sheet",
+            "label": "Attributes",
+            "index": 2
+        },
+        {
+            "name": "attributes",
+            "type": "List",
+            "label": "Set attributes to your Organisation (eg. Tax invoice number, Fax etc.)",
+            "metadata": "attribute",
+            "index": 1,
+            "span": 12,
+            "parent": "ORGANISATION-ATTRIBUTE-SHEET"
+        }
+    ]
+}
