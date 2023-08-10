@@ -1,6 +1,7 @@
 import { PageStateInterface } from "../core/interface/pageStateInterface";
 import maintenance from './maintenance/index';
 import './css/navigate.css';
+import { removeItem } from "../core/utils/functions/localStorage";
 
 
 const Navigate = ({pageState, setPageState} : {pageState: PageStateInterface, setPageState: Function}) => {

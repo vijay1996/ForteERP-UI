@@ -3,15 +3,18 @@ import { PageStateInterface } from "../interface/pageStateInterface";
 import RenderFields from "../utils/functions/RenderFields";
 import "../css/filter.css";
 import { removeNullValuesFromPayload } from "../utils/functions/api";
+import { getItem, setItem } from "../utils/functions/localStorage";
 
 const Filter = (
     {
         pageState, 
+        filterState,
         setFilterState,
         refreshList
     } : 
     {
         pageState: PageStateInterface,
+        filterState: any,
         setFilterState: Function,
         refreshList: Function
     }

@@ -46,7 +46,13 @@ export function handleApiError (response: any, successMessage: string, setPageSt
             return newPageState;
         });
         rerender();
-    } else {
+    } else if (response?.data?.name === 'CustomError') {
+        setPageState((prev: PageStateInterface) => ({
+            ...prev,
+            toastMessageSeverity: 'error',
+            toastMessage: response.data.message
+        }));
+    } else if (successMessage) {
         setPageState((prev: PageStateInterface) => ({
             ...prev,
             toastMessageSeverity: 'success',

@@ -9,6 +9,7 @@ import { Checkbox, Menu } from "@mui/material";
 import { LoopOutlined, MoreVert } from "@mui/icons-material";
 import { handleApiError } from "../utils/functions/errorHandling";
 import Sidebar from "./Sidebar";
+import { getItem, setItem } from "../utils/functions/localStorage";
 
 const Grid = ({pageState, setPageState} : {pageState: PageStateInterface, setPageState: Function}) => {
 
@@ -99,6 +100,7 @@ const Grid = ({pageState, setPageState} : {pageState: PageStateInterface, setPag
                 {
                     <Filter 
                         pageState={pageState}
+                        filterState={filterState}
                         setFilterState={setFilterState} 
                         refreshList={() => setTriggerList(prev => prev + 1)} 
                     />

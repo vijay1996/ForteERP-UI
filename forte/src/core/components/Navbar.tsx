@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import '../css/navbar.css';
 import { PageStateInterface } from '../interface/pageStateInterface';
 import CancelIcon from '../utils/icons/CancelIcon';
+import { removeItem } from '../utils/functions/localStorage';
 
 const Navbar = (
     {
@@ -54,10 +55,33 @@ const Navbar = (
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                    {applications.map((application: string, index: number) => <button className={`nav-link clickable ${isActiveTab(index)}`} onClick={() => performClick(index)}>{application}</button>)}
+                    <div className="navbar-nav">
+                        {applications.map((application: string, index: number) => <button className={`nav-link clickable ${isActiveTab(index)}`} onClick={() => performClick(index)}>{application}</button>)}
+                    </div>
                 </div>
-                </div>
+                <form className="form-inline my-2 my-lg-0">
+                    <button 
+                        className="btn btn-outline-success my-2 my-sm-0" 
+                        type="button" 
+                        onClick={() => {
+                            removeItem('token');
+                            window.location.reload()
+                        }}
+                    >
+                        Logout
+                    </button>
+                    &nbsp;
+                    <button 
+                        className="btn btn-outline-danger my-2 my-sm-0" 
+                        type="button" 
+                        onClick={() => {
+                            localStorage.removeItem(process.env.REACT_APP_CACHE_LOCATION as string);
+                            window.location.reload();
+                        }}
+                    >
+                        Clear cache
+                    </button>
+                </form>
             </div>
         </nav>
     )

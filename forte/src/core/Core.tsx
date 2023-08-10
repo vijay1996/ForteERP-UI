@@ -10,9 +10,10 @@ import Form from './components/Form';
 import { callApiInPostMode } from './utils/functions/api';
 import ForteToast from './utils/components/toast/Toast';
 import { AlertColor } from '@mui/material';
+import { getItem, setItem } from './utils/functions/localStorage';
 
 
-const Core = () => {
+const Core = ({token} : {token: any}) => {
 
     const applications: any = ['Business', 'Maintenance', 'Analytics'];
     const defaultScreens: any = ["", "organisation", ""]
@@ -27,7 +28,7 @@ const Core = () => {
         }))
     }
 
-    const [pageState, setPageState] = useState<PageStateInterface>({
+    const [pageState, setPageState] = useState<PageStateInterface>(getItem('pageState') || {
         activeTab: 1,
         showSidebar: false,
         sidebarHeight: 0,
@@ -44,12 +45,16 @@ const Core = () => {
 
         setPageState((prev: PageStateInterface) => ({
             ...prev,
-            application: applications[pageState.activeTab as number],
-            screen: defaultScreens[pageState.activeTab as number],
-            metadata: defaultMetadatas[pageState.activeTab as number],
+            application: pageState.application || applications[pageState.activeTab as number],
+            screen: pageState.screen || defaultScreens[pageState.activeTab as number],
+            metadata: pageState.metadata || defaultMetadatas[pageState.activeTab as number],
             form: null
         }))
     }, [pageState.activeTab]);
+
+    useEffect(() => {
+        token?.token?.length && setItem('token', token)
+    }, [token])
 
     return (
         <div className='jumbotron' id="app-view">

@@ -7,7 +7,7 @@ import SelectInput from "../components/fields/SelectInput";
 import TextInput from "../components/fields/TextInput";
 import TextareaInput from "../components/fields/TextareaInput";
 
-const RenderFields = (field: any, filterState: Object|any, setFilterState: Function, labelClass: string, parentClass: string, setRerender:Function) => {
+const RenderFields = (field: any, filterState: Object|any, setFilterState: Function, labelClass: string, parentClass: string, setRerender: Function) => {
         switch (field.type) {
             case 'Text':
             case 'Email':
