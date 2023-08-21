@@ -72,6 +72,7 @@ const ListInput = ({field, filterState, setFilterState, labelClass, parentClass,
 
     return (
         <div className="container-fluid" style={{overflow: "auto"}}>
+            {field.label}
             <div className="col-12">
                 <div className="grid-item" style={{height: "50px", width: "25px"}}>
                     <PlusIcon className="clickable" onClick={() => addAttributeRow(modalFields.length, setModalFields, 'add')} />

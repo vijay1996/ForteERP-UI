@@ -8,7 +8,7 @@ const ForteToast = ({show, toastMessage, handleCancel, severity}:{show:boolean, 
             open={show}
             autoHideDuration={10000}
             onClose={() => handleCancel()}
-            anchorOrigin={{vertical: "bottom", horizontal: "right"}}
+            anchorOrigin={{vertical: "top", horizontal: "right"}}
             message={toastMessage}
         >
             <Alert

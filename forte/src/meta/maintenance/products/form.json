@@ -26,14 +26,6 @@
             "parent": "MAIN-SHEET"
         },
         {
-            "name": "image",
-            "type": "ImageBase64",
-            "label": "Upload a picture of the product",
-            "index": 1,
-            "span": 5,
-            "parent": "MAIN-SHEET"
-        },
-        {
             "name": "description",
             "label": "Description",
             "type": "LongText",
@@ -91,19 +83,52 @@
             "parent": "MAIN-SHEET"
         },
         {
-            "name": "ORGANISATION-ATTRIBUTE-SHEET",
+            "name": "PRODUCT-ATTRIBUTES-SHEET",
             "type": "Sheet",
             "label": "Attributes",
             "index": 2
         },
         {
-            "name": "attributes",
-            "type": "List",
-            "label": "Set attributes to your product (eg. Discount, Quantity etc.)",
-            "metadata": "attribute",
+            "name": "attributeCode",
+            "label": "Attribute code",
+            "type": "DynamicSelect",
+            "api": {
+                "application": "maintenance",
+                "screen": "attributes"
+            },
             "index": 1,
+            "span": 4,
+            "parent": "PRODUCT-ATTRIBUTES-SHEET"
+        },
+        {
+            "name": "attributes",
+            "label": "Product attributes",
+            "type": "DynamicFields",
+            "apiConfig": {
+                "application": "maintenance",
+                "screen": "attributes",
+                "filter": {
+                    "fieldName": "attributeCode",
+                    "fieldValue": "attributeCode"
+                }
+            },
+            "index": 2,
             "span": 12,
-            "parent": "ORGANISATION-ATTRIBUTE-SHEET"
+            "parent": "PRODUCT-ATTRIBUTES-SHEET"
+        },
+        {
+            "name": "PRODUCT-IMAGES-SHEET",
+            "type": "Sheet",
+            "label": "Images",
+            "index": 3
+        },
+        {
+            "name": "image",
+            "type": "ImageBase64",
+            "label": "Upload a picture of the product",
+            "index": 1,
+            "span": 5,
+            "parent": "PRODUCT-IMAGES-SHEET"
         }
     ]
 }

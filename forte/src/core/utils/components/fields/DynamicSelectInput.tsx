@@ -34,9 +34,6 @@ const DynamicSelectInput = (
         newFilterState[`${field.name}`] = value;
         setFilterState(newFilterState);
         value?.split('').map((character:string) => character === '/' ? '//' : character).join('')
-        value && callApiInPostMode(field.api.application, field.api.screen, 'dynamicSelect', JSON.parse(`{"${field.api.alias?.value || field.name}": "${value}"}`)).then((response: any) => {
-            setValues(response.data);
-        })
         !value && setValues([]);
         setRerender((prev:number) => prev + 1);
     }, [value, field.name]);
@@ -46,7 +43,12 @@ const DynamicSelectInput = (
             <label className={`form-label ${labelClass}`} htmlFor={field.name}>{field.label}<span className="error">{field.error}</span></label>
             <input
                 value={value as string}
-                onChange={(e) => setValue(e.target.value)}
+                onChange={(e) => {
+                    setValue(e.target.value);
+                    e.target.value && callApiInPostMode(field.api.application, field.api.screen, 'dynamicSelect', JSON.parse(`{"${field.api.alias?.value || field.name}": "${value}"}`)).then((response: any) => {
+                        setValues(response.data);
+                    })
+                }}
                 onFocus={() => setShowSuggestions(true)}
                 onBlur={() => setShowSuggestions(false)}
                 className="form form-control"

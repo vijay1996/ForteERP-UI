@@ -1,0 +1,16 @@
+{
+    "columns": [
+        {
+            "name": "attributeCode",
+            "label": "Attribute code",
+            "span": 2,
+            "index": 1
+        },
+        {
+            "name": "shortDescription",
+            "label": "Short description",
+            "span": 2,
+            "index": 2
+        }
+    ]
+}

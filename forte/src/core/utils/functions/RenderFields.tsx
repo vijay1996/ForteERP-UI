@@ -1,4 +1,5 @@
 import CheckboxInbox from "../components/fields/CheckboxInput";
+import DynamicFieldInput from "../components/fields/DynamicFieldInput";
 import DynamicSelectInput from "../components/fields/DynamicSelectInput";
 import ImageBase64Input from "../components/fields/ImageBase64Input";
 import ListInput from "../components/fields/ListInput";
@@ -92,6 +93,17 @@ const RenderFields = (field: any, filterState: Object|any, setFilterState: Funct
                     <ListInput
                         field={field} 
                         filterState={filterState} 
+                        setFilterState={setFilterState} 
+                        labelClass={labelClass} 
+                        parentClass={parentClass}
+                        setRerender={setRerender}
+                    />
+                )
+            case 'DynamicFields':
+                return (
+                    <DynamicFieldInput
+                        field={field}
+                        filterState={filterState}
                         setFilterState={setFilterState} 
                         labelClass={labelClass} 
                         parentClass={parentClass}

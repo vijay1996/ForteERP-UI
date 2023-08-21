@@ -1,0 +1,43 @@
+{
+    "fields": [
+        {
+            "name": "PRODUCT-ATTRIBUTE-SHEET",
+            "type": "Sheet",
+            "label": "Attributes",
+            "index": 1
+        },
+        {
+            "name": "attributeCode",
+            "label": "Attribute code",
+            "type": "Text",
+            "index": 1,
+            "span": 2,
+            "parent": "PRODUCT-ATTRIBUTE-SHEET"
+        },
+        {
+            "name": "shortDescription",
+            "label": "Short description",
+            "type": "Text",
+            "index": 1,
+            "span": 4,
+            "parent": "PRODUCT-ATTRIBUTE-SHEET"
+        },
+        {
+            "name": "description",
+            "label": "Description",
+            "type": "LongText",
+            "index": 2,
+            "span": 6,
+            "parent": "PRODUCT-ATTRIBUTE-SHEET"
+        },
+        {
+            "name": "attributes",
+            "type": "List",
+            "label": "Set attributes to your product (eg. Discount, Quantity etc.)",
+            "metadata": "attribute",
+            "index": 3,
+            "span": 12,
+            "parent": "PRODUCT-ATTRIBUTE-SHEET"
+        }
+    ]
+}

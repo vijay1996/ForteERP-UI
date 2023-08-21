@@ -65,6 +65,7 @@ const Grid = ({pageState, setPageState} : {pageState: PageStateInterface, setPag
     }
 
     useEffect(() => {
+        setLoader(true)
         let newGridData: Array<any> = [];
         setGridData([]);
         pageState.application && pageState.screen &&
@@ -85,13 +86,14 @@ const Grid = ({pageState, setPageState} : {pageState: PageStateInterface, setPag
                                 </div>
                             </div>
                         );
-                        pageState.metadata?.grid.columns.sort((a:any,b:any) => a.index - b.index)
+                        pageState.metadata?.grid.columns?.sort((a:any,b:any) => a.index - b.index)
                             ?.forEach((column:any) => row.push(entry[`${column.name}`]));
                         newGridData = [...newGridData, row]
                         setGridData(newGridData);
                     })
                 })
-                .catch((error) => console.log(error));
+                .catch((error) => console.log(error))
+                .finally(() => setLoader(false));
     }, [pageState.application, pageState.screen, triggerList, searchString])
 
     return (
@@ -124,7 +126,7 @@ const Grid = ({pageState, setPageState} : {pageState: PageStateInterface, setPag
                                         <tr>
                                             <th style={{width: "40px"}}></th>
                                             <th style={{width: "40px"}}></th>
-                                            {pageState.metadata?.grid.columns.sort((a:any,b:any) => a.index - b.index)
+                                            {pageState.metadata?.grid.columns?.sort((a:any,b:any) => a.index - b.index)
                                                 .map((column: any) => <th scope="col">{column.label}</th>)}
                                         </tr>
                                     </thead>

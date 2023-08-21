@@ -1,7 +1,6 @@
 import { PageStateInterface } from "../core/interface/pageStateInterface";
 import maintenance from './maintenance/index';
 import './css/navigate.css';
-import { removeItem } from "../core/utils/functions/localStorage";
 
 
 const Navigate = ({pageState, setPageState} : {pageState: PageStateInterface, setPageState: Function}) => {
@@ -25,6 +24,7 @@ const Navigate = ({pageState, setPageState} : {pageState: PageStateInterface, se
                 <div className="col-md-12 sidebar-link" onClick={() => navigateTo("organisation")}>Organisation</div>
                 <div className="col-md-12 sidebar-link" onClick={() => navigateTo("users")}>Users</div>
                 <div className="col-md-12 sidebar-link" onClick={() => navigateTo("products")}>Products</div>
+                <div className="col-md-12 sidebar-link" onClick={() => navigateTo("attributes")}>Attributes</div>
             </div>
         );        
     } else if (pageState.application === "Reporter") {

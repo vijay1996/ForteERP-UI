@@ -16,10 +16,14 @@
             "parent": "MAIN-SHEET"
         },
         {
-            "name": "value",
-            "label": "Value",
-            "type": "Text",
+            "name": "type",
+            "label": "Type",
+            "type": "Select",
             "required": true,
+            "values": [
+                {"value": "Text", "label": "Text"},
+                {"value": "Number", "label": "Number"}
+            ],
             "index": 1,
             "span": 3,
             "parent": "MAIN-SHEET"
